@@ -4,6 +4,6 @@ This is a program that written in C language. What you can do is input your favo
 
 # Contributors
 Thanks to the contributors of this project:
-- Dewa Theisyatta (Project Leader)
-- Ivan Fernanda
+- [Dewa Theisyatta](https://github.com/kingdeww19) (Project Leader)
+- [Ivan Fernanda](https://github.com/IvanFP26)
 - Rayhan Rusyd
