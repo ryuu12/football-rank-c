@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	int i,n;
+    int i,n;
     char nama[500];
     int tropi,jumlahanggota;
     char anggotaklub[500];
