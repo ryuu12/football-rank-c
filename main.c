@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
-{
-    struct data{
+struct data{
     char arrusername[20];
     char arrpassword[20];
 }datauser[100];
@@ -21,7 +19,7 @@ void masuk(){
     datapassword=fopen("password.txt","r");
 
     i=0;
-    while(fgets(buff,sizeof(buff),datausername)!=NULL) {
+    while(fgets(buff,sizeof(buff),datausername)!=NULL){
         strcpy(datauser[i].arrusername,buff);
         i++;
         end++;
@@ -29,7 +27,7 @@ void masuk(){
     fclose(datausername);
 
     i=0;
-    while(fgets(buff,sizeof(buff),datapassword)!=NULL) {
+    while(fgets(buff,sizeof(buff),datapassword)!=NULL){
         strcpy(datauser[i].arrpassword,buff);
         i++;
     }
@@ -43,7 +41,7 @@ void masuk(){
     system("cls");
 
     i=0;
-    while(i<=end+1) {
+    while(i<=end+1){
         if(i>end){
             system("cls");
             printf("(ops sorry your username not found\n");
@@ -59,17 +57,11 @@ void masuk(){
                 default: main();
             }
         }
-        if(strcmp("admin\n",tryusername)==0) {
-            if(strcmp("admin\n",trypassword)==0) {
-                adminmenu();
-            }
-        }
-
-        if(strcmp(datauser[i].arrusername,tryusername)==0) {
-            if(strcmp(datauser[i].arrpassword,trypassword)==0) {
+        if(strcmp(datauser[i].arrusername,tryusername)==0){
+            if(strcmp(datauser[i].arrpassword,trypassword)==0){
                 usermenu();
             }
-            else {
+            else{
                 system("cls");
                 printf("(ops sorry Wrong Password)\n");
                 printf("1. Try again\n");
@@ -89,8 +81,7 @@ void masuk(){
     }
 }
 
-void daftar()
-{
+void daftar(){
     char username[20];
     char password[20];
     FILE *datausername;
@@ -113,47 +104,20 @@ void daftar()
     printf("(registered successfully)\n");
 }
 
-void usermenu() {
+void usermenu(){
     printf("Success entered user menu\n");
-    printf("1. Back to menu\n");
+    printf("1. Input Data Klub\n");
     printf("\nSelect Menu: ");
     scanf("%d",&menu);
     fflush(stdin);
     system("cls");
     switch (menu) {
-        default: main();
+        case 1: inputdata();break;
+        default: usermenu();
     }
 }
 
-void adminmenu() {
-    printf("Success entered admin menu\n");
-    printf("1. Exit to Menu\n");
-    printf("\nSelect Menu: ");
-    scanf("%d",&menu);
-    fflush(stdin);
-    system("cls");
-    switch (menu) {
-        default: main();
-    }
-}
-
-int main() {
-    while(1){
-        printf("| = = = = = | Welcome to Football Rank | = = = = = |\n");
-        printf("1. Log In");
-        printf("\n2. Sign up");
-        printf("\n3. Exit\n");
-        printf("\nSelect Menu: ");
-        scanf("%d",&menu);
-        fflush(stdin);
-        system("cls");
-        switch (menu) {
-            case 1: masuk();
-                    break;
-            case 3: exit(0);
-            default: daftar();
-        }
-    } //Log in -Dewa
+void inputdata(){
     int i,n;
     char nama[500];
     int tropi,jumlahanggota;
@@ -201,7 +165,24 @@ int main() {
         }
         fclose(dataklub);
     }
+}
+
+int main(){
+    while(1){
+        printf("| = = = = = | Welcome to Football Rank | = = = = = |\n");
+        printf("1. Log In");
+        printf("\n2. Sign up");
+        printf("\n3. Exit\n");
+        printf("\nSelect Menu: ");
+        scanf("%d",&menu);
+        fflush(stdin);
+        system("cls");
+        switch (menu) {
+            case 1: masuk();
+                    break;
+            case 3: exit(0);
+            default: daftar();
+        }
+    }
     return 0;
-	//Langsung aja simpen kodenya di sini yak -Rayhan
-	
 }
